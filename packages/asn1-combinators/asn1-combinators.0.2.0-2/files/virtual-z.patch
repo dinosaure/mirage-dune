@@ -1,0 +1,37 @@
+diff --git a/myocamlbuild.ml b/myocamlbuild.ml
+--- /dev/null
++++ b/myocamlbuild.ml
+@@ -0,0 +1,2 @@
++open Ocamlbuild_plugin
++let () = flag ["ocaml"; "compile"] (A "-no-keep-locs")
+diff --git a/pkg/pkg.ml b/pkg/pkg.ml
+--- a/pkg/pkg.ml
++++ b/pkg/pkg.ml
+@@ -6,9 +6,15 @@ open Topkg
+ let bench = Conf.(key "bench" bool ~absent:false ~doc:"Build benchmarks")
+ 
+ let () =
++  let zarith = Findlib.package_directory "zarith" in
++  let z = Fpath.(zarith // "z.mli") in
+   Pkg.describe "asn1-combinators" @@ fun c ->
+     let bench = Conf.value c bench in
++    OS.File.read z
++    >>= fun contents -> OS.File.write "src/z.mli" contents
++    >>= fun () ->
+     Ok [ Pkg.mllib ~api:["Asn"] "src/asn1-combinators.mllib";
++         Pkg.lib "src/z.mli" ;
+          Pkg.test "tests/testrunner";
+          Pkg.test ~cond:bench ~run:false "tests/bench";
+     ]
+diff --git a/_tags b/_tags
+--- a/_tags	2019-12-12 21:26:26.327825826 +0100
++++ b/_tags	2019-12-12 21:26:36.211878588 +0100
+@@ -1,7 +1,7 @@
+ true: color(always)
+ true: bin_annot, safe_string, strict_sequence
+ true: warn(A-4-41-42-44-48-58)
+-true: package(bytes), package(result), package(cstruct), package(zarith), package(ptime), package(bigarray-compat)
++true: package(bytes), package(result), package(cstruct), package(ptime), package(bigarray-compat)
+ 
+ <src>: include
+ 

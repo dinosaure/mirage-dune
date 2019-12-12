@@ -1,0 +1,20 @@
+diff --git a/lib/dune b/lib/dune
+index d652411..7ebb1f4 100644
+--- a/lib/dune
++++ b/lib/dune
+@@ -1,9 +1,13 @@
+ (library
+  (name x509)
+  (public_name x509)
++ (modules_without_implementation z)
++ (wrapped false)
+  (private_modules asn_grammars registry authenticator certificate validation
+                   public_key private_key crl distinguished_name algorithm
+-                  extension pem signing_request general_name)
+- (flags (:standard -safe-string))
++                  extension pem signing_request general_name z)
++ (flags (:standard -safe-string -no-keep-locs))
+  (libraries asn1-combinators rresult fmt ptime cstruct nocrypto gmap
+             domain-name))
++
++(rule (copy %{lib:zarith:z.mli} z.mli))

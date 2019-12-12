@@ -1,0 +1,67 @@
+diff --git a/_tags b/_tags
+index a0cc6f9..c580aca 100644
+--- a/_tags
++++ b/_tags
+@@ -26,19 +26,19 @@ true: annot, bin_annot
+ "src/ocplib_endian.cmxs": use_ocplib_endian
+ # Library bigstring
+ "src/bigstring.cmxs": use_bigstring
+-<src/*.ml{,i,y}>: pkg_bigarray
++<src/*.ml{,i,y}>: pkg_bigarray-compat
+ <src/*.ml{,i,y}>: pkg_bytes
+ # Executable test
+-<tests/test.{native,byte}>: pkg_bigarray
++<tests/test.{native,byte}>: pkg_bigarray-compat
+ <tests/test.{native,byte}>: pkg_bytes
+ <tests/test.{native,byte}>: use_bigstring
+ <tests/test.{native,byte}>: use_ocplib_endian
+ # Executable benchmark
+-<tests/bench.{native,byte}>: pkg_bigarray
++<tests/bench.{native,byte}>: pkg_bigarray-compat
+ <tests/bench.{native,byte}>: pkg_bytes
+ <tests/bench.{native,byte}>: use_bigstring
+ <tests/bench.{native,byte}>: use_ocplib_endian
+-<tests/*.ml{,i,y}>: pkg_bigarray
++<tests/*.ml{,i,y}>: pkg_bigarray-compat
+ <tests/*.ml{,i,y}>: pkg_bytes
+ <tests/*.ml{,i,y}>: use_bigstring
+ <tests/*.ml{,i,y}>: use_ocplib_endian
+diff --git a/setup.ml b/setup.ml
+index 9a7fcd2..80c3689 100644
+--- a/setup.ml
++++ b/setup.ml
+@@ -6981,7 +6981,7 @@ let setup_t =
+                       bs_compiled_object = Best;
+                       bs_build_depends =
+                         [
+-                           FindlibPackage ("bigarray", None);
++                           FindlibPackage ("bigarray-compat", None);
+                            FindlibPackage ("bytes", None)
+                         ];
+                       bs_build_tools = [ExternalTool "ocamlbuild"];
+diff --git a/src/META b/src/META
+index 4b83b01..d62aa7e 100644
+--- a/src/META
++++ b/src/META
+@@ -13,7 +13,7 @@ package "bigstring" (
+  version = "1.0"
+  description =
+  "Optimised functions to read and write int16/32/64 from strings and bigarrays"
+- requires = "bigarray bytes"
++ requires = "bigarray-compat bytes"
+  archive(byte) = "bigstring.cma"
+  archive(byte, plugin) = "bigstring.cma"
+  archive(native) = "bigstring.cmxa"
+diff --git a/src/endianBigstring.cppo.ml b/src/endianBigstring.cppo.ml
+index 21c3956..cd02f3d 100644
+--- a/src/endianBigstring.cppo.ml
++++ b/src/endianBigstring.cppo.ml
+@@ -15,7 +15,7 @@
+ (*                                                                      *)
+ (************************************************************************)
+ 
+-open Bigarray
++open Bigarray_compat
+ 
+ type bigstring = (char, int8_unsigned_elt, c_layout) Array1.t
+ 

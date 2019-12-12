@@ -1,0 +1,17 @@
+Do the orchestration by ourself about changes from
+nocrypto.
+
+--- a/_tags
++++ b/_tags
+@@ -13,9 +13,9 @@ true : package(cstruct cstruct-sexp nocrypto x509 sexplib domain-name fmt)
+ 
+ <lib> : include
+ 
+-<tests/*> : package(oUnit cstruct-unix)
++<tests/*> : package(oUnit cstruct-unix nocrypto.native.unix)
+ 
+-<lwt/**/*> : package(lwt lwt.unix ptime.clock.os)
++<lwt/**/*> : package(lwt lwt.unix nocrypto.lwt nocrypto.native.unix ptime.clock.os)
+ <lwt> : include
+ <lwt/examples/*> : package(nocrypto.lwt)
+ 
