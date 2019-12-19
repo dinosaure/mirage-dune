@@ -14,6 +14,7 @@ depends: [
   "parsexp"  {>= "v0.13" & < "v0.14"}
   "sexplib0" {>= "v0.13" & < "v0.14"}
   "dune"     {>= "1.5.1"}
+  "bigarray-compat"
   "num"
 ]
 synopsis: "Library for serializing OCaml values to and from S-expressions"
