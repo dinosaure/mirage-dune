@@ -23,7 +23,7 @@ arithmetic over big integers. Small integers are represented as Caml
 unboxed integers, for speed and space economy."""
 extra-files: [
   ["mirage-uninstall.sh" "md5=c32529279723c80a648418c409c2bb9e"]
-  ["mirage-install.sh" "md5=0c7692e92cc6866f4899104a9e20ad13"]
+  ["mirage-install.sh" "md5=7e607534bcc15ea18def76c412268bee"]
   ["mirage-build.sh" "md5=1b634c68d83ef9ce2cfa6dd6f9eeac1a"]
   ["no-dynlink.patch" "md5=eff128f04dd08b0e5a02e49c99dc518b"]
   ["fix-cma.patch" "md5=d6c7b5b54502619b0542c08b2781971e"]
