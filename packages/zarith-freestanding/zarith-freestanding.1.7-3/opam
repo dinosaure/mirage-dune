@@ -27,7 +27,7 @@ extra-files: [
   ["mirage-build.sh" "md5=1b634c68d83ef9ce2cfa6dd6f9eeac1a"]
   ["no-dynlink.patch" "md5=eff128f04dd08b0e5a02e49c99dc518b"]
   ["fix-cma.patch" "md5=d6c7b5b54502619b0542c08b2781971e"]
-  ["meta.patch" "md5=21eba89fe1dfd623f4a4d6d99f115776" ]
+  ["meta.patch" "md5=abfb52c467122e8cbe444c4e35e0057a" ]
 ]
 url {
   src: "https://github.com/ocaml/Zarith/archive/release-1.7.tar.gz"

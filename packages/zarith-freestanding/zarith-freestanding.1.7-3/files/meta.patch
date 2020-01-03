@@ -1,9 +1,10 @@
 --- a/META	2019-12-12 20:13:01.313840649 +0100
 +++ b/META	2019-12-12 16:53:48.384382793 +0100
-@@ -3,3 +3,10 @@
+@@ -3,3 +3,11 @@
  version = "1.5"
  archive(byte) = "zarith.cma"
  archive(native) = "zarith.cmxa"
++
 +freestanding_linkopts = "-lzarith-freestanding -L@gmp-freestanding -lgmp-freestanding"
 +
 +package "freestanding" (
