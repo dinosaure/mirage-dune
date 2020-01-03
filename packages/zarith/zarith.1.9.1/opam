@@ -11,7 +11,7 @@ dev-repo: "git+https://github.com/ocaml/Zarith.git"
 build: [
   [ "sh" 
     "-exc"
-    "OCAMLFLAGS=\"-no-keep-locs\" OCAMLOPTFLAGS=\"-no-keep-locs\" "./configure"] {os != "openbsd" & os != "freebsd" & os != "macos"}
+    "OCAMLFLAGS=\"-no-keep-locs\" OCAMLOPTFLAGS=\"-no-keep-locs\" ./configure"] {os != "openbsd" & os != "freebsd" & os != "macos"}
   [
     "sh"
     "-exc"
