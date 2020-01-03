@@ -15,7 +15,7 @@ OCAMLFLAGS="-no-keep-locs"
 export OCAMLFLAGS
 OCAMLOPTFLAGS="-no-keep-locs"
 export OCAMLOPTFLAGS
-./configure
+./configure -nodynlink -gmp
 make
 
 cp libzarith.a "$PREFIX/lib/zarith/libzarith-xen.a"
