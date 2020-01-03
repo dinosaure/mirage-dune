@@ -11,6 +11,7 @@ depends: [
   "zarith" {= "1.7-1"}
   "ocamlfind" {build}
 ]
+patches: [ "no-dynlink.patch" "fix-cma.patch" ]
 synopsis:
   "Implements arithmetic and logical operations over arbitrary-precision integers"
 description: """
