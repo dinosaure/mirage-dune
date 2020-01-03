@@ -1,0 +1,13 @@
+--- a/project.mak	2020-01-03 18:18:35.133656027 +0100
++++ b/project.mak	2020-01-03 18:19:08.333820478 +0100
+@@ -49,8 +49,8 @@
+ TOINSTALL += zarith.$(LIBSUFFIX) zarith.cmxa $(CMXOBJ)
+ endif
+ 
+-OCAMLFLAGS = -I +compiler-libs
+-OCAMLOPTFLAGS = -I +compiler-libs
++OCAMLFLAGS += -I +compiler-libs
++OCAMLOPTFLAGS += -I +compiler-libs
+ 
+ ifeq ($(HASDYNLINK),yes)
+ TOINSTALL += zarith.cmxs

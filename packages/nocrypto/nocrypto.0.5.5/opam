@@ -32,7 +32,7 @@ depends: [
   "ocplib-endian"
   "zarith"
   "bigarray-compat"
-  ("mirage-no-xen" | ("mirage-xen" {>= "2.2.0"} & "zarith-xen"))
+  ("mirage-no-xen" | ("mirage-xen" & "zarith-xen"))
   ("mirage-no-solo5" | ("mirage-solo5" & "zarith-freestanding"))
 ]
 

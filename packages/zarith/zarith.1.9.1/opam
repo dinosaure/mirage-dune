@@ -33,6 +33,10 @@ depends: [
   "conf-gmp"
   "conf-perl" {build}
 ]
+extra-files: [
+  ["fix-make.patch" "md5=b914a490541668e5678cd8e808851ed9"]
+]
+patches: [ "fix-make.patch" ]
 synopsis:
   "Implements arithmetic and logical operations over arbitrary-precision integers"
 description: """
