@@ -8,6 +8,5 @@ cp libzarith.a "$PREFIX/lib/zarith/libzarith-freestanding.a"
 cp zarith.cma  "$PREFIX/lib/zarith/zarith-freestanding.cma"
 cp zarith.cmxa "$PREFIX/lib/zarith/zarith-freestanding.cmxa"
 cp zarith.a    "$PREFIX/lib/zarith/zarith-freestanding.a"
-cp META        "$PREFIX/META.orig"
 
 patch -d $PREFIX/lib/zarith < meta.patch
