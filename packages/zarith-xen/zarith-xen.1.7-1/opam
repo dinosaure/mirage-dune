@@ -19,11 +19,10 @@ arbitrary-precision integers. It uses GMP to efficiently implement
 arithmetic over big integers. Small integers are represented as Caml
 unboxed integers, for speed and space economy."""
 extra-files: [
-  ["mirage-uninstall.sh" "md5=a4e34cb3c12d7adb001c226ceba0cd4f"]
-  ["mirage-install.sh" "md5=e08069da4312162161a81db8683b15cc"]
+  ["mirage-uninstall.sh" "md5=b2e72b66d5d71617485459a1ccd9ab14"]
+  ["mirage-install.sh" "md5=37a7cc89d74ca6beb59dc791a18c9352"]
   ["no-dynlink.patch" "md5=eff128f04dd08b0e5a02e49c99dc518b"]
   ["fix-cma.patch" "md5=6838e5c4a3f5b5f87a4ac20ffcf7d28b"]
-  ["meta.patch" "md5=a2a46837a027364c7c0b2609009bf5e3" ]
 ]
 url {
   src: "https://github.com/ocaml/Zarith/archive/release-1.7.tar.gz"

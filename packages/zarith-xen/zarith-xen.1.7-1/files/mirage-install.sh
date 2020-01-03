@@ -22,5 +22,14 @@ cp libzarith.a "$PREFIX/lib/zarith/libzarith-xen.a"
 cp zarith.cma  "$PREFIX/lib/zarith/zarith-xen.cma"
 cp zarith.cmxa "$PREFIX/lib/zarith/zarith-xen.cmxa"
 cp zarith.a    "$PREFIX/lib/zarith/zarith-xen.a"
+cp "$PREFIX/lib/zarith/META" META.orig
 
-patch -d $PREFIX/lib/zarith < meta.patch
+cat >>"$PREFIX/lib/zarith/META" <<EOM
+xen_linkopts = "-lzarith-xen -L@gmp-xen -lgmp-xen"
+
+package "xen" (
+  requires = "ocaml-xen gmp-xen"
+  archive(byte) = "zarith-xen.cma"
+  archive(native) = "zarith-xen.cmxa"
+)
+EOM

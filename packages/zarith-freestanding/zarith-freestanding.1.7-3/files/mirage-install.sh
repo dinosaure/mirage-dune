@@ -8,5 +8,14 @@ cp libzarith.a "$PREFIX/lib/zarith/libzarith-freestanding.a"
 cp zarith.cma  "$PREFIX/lib/zarith/zarith-freestanding.cma"
 cp zarith.cmxa "$PREFIX/lib/zarith/zarith-freestanding.cmxa"
 cp zarith.a    "$PREFIX/lib/zarith/zarith-freestanding.a"
+cp "$PREFIX/lib/zarith/META" META.orig
 
-patch -d $PREFIX/lib/zarith < meta.patch
+cat >>"$PREFIX/lib/zarith/META" <<EOM
+freestanding_linkopts = "-lzarith-freestanding -L@gmp-freestanding -lgmp-freestanding"
+
+package "freestanding" (
+  requires = "ocaml-freestanding gmp-freestanding"
+  archive(byte) = "zarith-freestanding.cma"
+  archive(native) = "zarith-freestanding.cmxa"
+)
+EOM

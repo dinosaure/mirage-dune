@@ -6,5 +6,4 @@ rm -f "$PREFIX/lib/zarith/libzarith-xen.a"
 rm -f "$PREFIX/lib/zarith/zarith-xen.cma"
 rm -f "$PREFIX/lib/zarith/zarith-xen.cmxa"
 rm -f "$PREFIX/lib/zarith/zarith-xen.a"
-
-patch -d $PREFIX/lib/zarith/ -R < meta.patch
+cp META.orig "$PREFIX/lib/zarith/META"
