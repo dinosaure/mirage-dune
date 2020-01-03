@@ -8,7 +8,7 @@ depends: [
   "ocaml"
   "mirage-xen-posix"
   "gmp-xen" {> "6.0.0"}
-  "zarith" {= "1.7"}
+  "zarith" {= "1.7-1"}
   "ocamlfind" {build}
 ]
 synopsis:
