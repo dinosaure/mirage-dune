@@ -1,0 +1,13 @@
+--- a/META	2019-12-12 20:13:01.313840649 +0100
++++ b/META	2019-12-12 16:53:48.384382793 +0100
+@@ -3,3 +3,10 @@
+ version = "1.5"
+ archive(byte) = "zarith.cma"
+ archive(native) = "zarith.cmxa"
++xen_linkopts = "-lzarith-xen -L@gmp-xen -lgmp-xen"
++
++package "xen" (
++  requires = "ocaml-xen gmp-xen"
++  archive(byte) = "zarith-xen.cma"
++  archive(native) = "zarith-xen.cmxa"
++)
