@@ -3,7 +3,8 @@
 PREFIX=`opam config var prefix`
 
 rm -f "$PREFIX/lib/zarith/libzarith-xen.a"
+rm -f "$PREFIX/lib/zarith/zarith-xen.cma"
+rm -f "$PREFIX/lib/zarith/zarith-xen.cmxa"
+rm -f "$PREFIX/lib/zarith/zarith-xen.a"
 
-mv "$PREFIX/lib/zarith/META" "$PREFIX/lib/zarith/META.tmp"
-cat "$PREFIX/lib/zarith/META.tmp" | grep -v xen_linkopts > "$PREFIX/lib/zarith/META"
-rm -f "$PREFIX/lib/zarith/META.tmp"
+patch -d $PREFIX/lib/zarith/ -R < meta.patch
